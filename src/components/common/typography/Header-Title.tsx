@@ -17,7 +17,5 @@ const HeaderTitle: React.FC<IHeaderTitleProps> = ({ children, className }) => {
 
 /* Style of common component. */
 export default styled(HeaderTitle)`
-
     text-align: center;
- 
 `;
