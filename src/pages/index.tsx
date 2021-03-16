@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import HeaderTitle from '../components/common/typography/Header-Title'
+import { useTranslation } from '../i18n';
 
-export default function Home() {
+const Home: React.FC = () => {
+
+  const { t } = useTranslation(['common']);
+  
   return (
     <div className="container">
       <Head>
@@ -11,12 +15,12 @@ export default function Home() {
 
       <main>
         <HeaderTitle>
-            Patrik Duch, Solutions Architect
+            Patrik Duch, Solutions Architect    
         </HeaderTitle>
       </main>
 
       <footer>
-        <p>Autor: Patrik Duch</p>
+        <p> { t('author')}: Patrik Duch</p>
       </footer>
 
       <style jsx>{`
@@ -167,3 +171,6 @@ export default function Home() {
     </div>
   )
 }
+
+
+export default Home;
