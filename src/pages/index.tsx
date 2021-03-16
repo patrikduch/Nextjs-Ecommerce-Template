@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import HeaderTitle from '../components/common/typography/Header-Title'
 import { useTranslation } from '../i18n';
 
@@ -8,11 +7,6 @@ const Home: React.FC = () => {
   
   return (
     <div className="container">
-      <Head>
-        <title>Patrik Duch, Solutions Architect</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
         <HeaderTitle>
             Patrik Duch, Solutions Architect    
