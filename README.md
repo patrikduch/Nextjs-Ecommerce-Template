@@ -5,7 +5,7 @@
 
 <ul>
     <li>styled-components JS library</li>
-    <li>@material-ui/core for Material-UI integration.</li>
+    <li>@material-ui/core for Material-UI integration</li>
 </ul>
 
 
