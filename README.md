@@ -1,5 +1,14 @@
 # nextjs-fe-template
 
+## dockerization
+
+### build image
+
+docker build -f Dockerfile -t nextjs-fe-template .
+
+### run image
+
+docker run -p 80:3000 nextjs-fe-template
 
 ## stylization
 
@@ -38,4 +47,5 @@
 <ul>
     <li>axios JS library</li>
 </ul>
+
 
