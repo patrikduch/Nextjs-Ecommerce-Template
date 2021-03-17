@@ -9,6 +9,7 @@ import LeftMenuBar from "@components/layout/LeftMenu-Bar";
 const Home: React.FC = () => {
   return (
     <PageContainer>
+      <h1>Homepage</h1>
       <TopMenuBar />
       <LeftMenuBar />
     </PageContainer>

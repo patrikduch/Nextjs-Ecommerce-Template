@@ -76,7 +76,7 @@ const LeftMenuBar: FC<LeftMenuBarProps> = ({ drawerOpen, handleToggleDrawer }) =
             </List>
             <Divider />
             <List>
-                <Link href="/">
+                <Link href="/users">
                     <StyledListItem button>
                         <ListItemIcon>
                             <GroupIcon />
