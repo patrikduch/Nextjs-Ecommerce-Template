@@ -28,7 +28,7 @@ module.exports = {
   ],
   rules: {
     'no-console': 0,
-    "sort-imports": "error",
+    //"sort-imports": "error",
     'prettier/prettier': ['off', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
