@@ -1,42 +1,27 @@
+import React from 'react';
 import HeaderTitle from '../components/common/typography/Header-Title'
+import PageContainer from '../components/Page-Container';
 import BodyContainer from '../components/skeleton/body/Body-Container';
 import FooterContainer from '../components/skeleton/footer/Footer-Container';
 import { useTranslation } from '../i18n';
-
+/**
+ * @function Home  Page component for root path.
+ */
 const Home: React.FC = () => {
 
   const { t } = useTranslation(['common']);
   
   return (
-    <div className="container">
+    <PageContainer>
+
       <BodyContainer>
-        <HeaderTitle>
-              Patrik Duch, Solutions Architect    
-          </HeaderTitle>
+        <HeaderTitle>Patrik Duch, Solutions Architect</HeaderTitle>
       </BodyContainer>
 
       <FooterContainer>
         <p> { t('author')}: Patrik Duch</p>
       </FooterContainer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-    </div>
+    </PageContainer>
   )
 }
 

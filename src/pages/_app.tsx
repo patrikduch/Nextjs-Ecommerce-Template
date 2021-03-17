@@ -14,7 +14,12 @@ import GlobalStyle from '../components/styled-components/Global-Style';
  */
 class StartupApp extends App {
 
-
+	/**
+	 * @function getInitialProps Get initial props for particular page component.
+	 * @param Component page component of particular request.
+	 * @param ctx context instance of particular request. 
+	 * @returns page properties.
+	 */
 	static async getInitialProps({Component, ctx}) {
         const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 
@@ -35,13 +40,13 @@ class StartupApp extends App {
 					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 					<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
 				</Head>
-					<StylesProvider injectFirst>
-						<ThemeProvider theme={theme}>
-							<CssBaseline />
-							<GlobalStyle />
-							<Component {...pageProps} />
-						</ThemeProvider>
-					</StylesProvider>
+				<StylesProvider injectFirst>
+					<ThemeProvider theme={theme}>
+						<CssBaseline />
+						<GlobalStyle />
+						<Component {...pageProps} />
+					</ThemeProvider>
+				</StylesProvider>
 			</>
 		);
 	}
