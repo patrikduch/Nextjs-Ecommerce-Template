@@ -104,7 +104,7 @@ const TopMenuBar: FC = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={() => router.push('/my-account')}>Můj účet</MenuItem>
+            <MenuItem onClick={() => router.push('/')}>Můj účet</MenuItem>
             <MenuItem onClick={null}>Odhlásit se</MenuItem>
         </StyledMenu>
     );
