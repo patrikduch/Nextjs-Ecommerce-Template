@@ -17,7 +17,7 @@ export const {
 
 export interface WithNamespaces {
   namespacesRequired: string[];
-  [key: string]: any;
+  [key: string]: string[];
 }
 
 export default NextI18Instance;
