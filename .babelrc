@@ -7,19 +7,6 @@
         "displayName": true,
         "preprocess": false
       }
-    ],
-    [
-      "module-resolver",
-      {
-        "root": [
-          "./"
-        ],
-        "alias": {
-          "@components": "./src/components",
-          "@typescript": "./src/typescript",
-          "@redux": "./src/redux"
-        }
-      }
     ]
   ],
   "presets": [

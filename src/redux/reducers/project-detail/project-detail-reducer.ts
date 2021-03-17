@@ -1,6 +1,6 @@
 import { FETCH_PROJECT_DETAIL_SUCCESS } from "../../actionTypes";
 import { HYDRATE } from 'next-redux-wrapper';
-import ProjectDetailTypeModel from "src/typescript/types/app/models/Project-Detail-Type-Model";
+import ProjectDetailTypeModel from "@typescript/types/app/models/Project-Detail-Type-Model";
 import initialState from "../../initial-state";
 
 /**
