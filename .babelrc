@@ -16,7 +16,8 @@
         ],
         "alias": {
           "@components": "./src/components",
-          "@typescript": "./src/typescript"
+          "@typescript": "./src/typescript",
+          "@redux": "./src/redux"
         }
       }
     ]

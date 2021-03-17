@@ -1,17 +1,14 @@
-import React from "react";
-import HeaderTitle from "@components/common/typography/Header-Title";
-import PageContainer from "@components/Page-Container";
 import BodyContainer from "@components/skeleton/body/Body-Container";
 import FooterContainer from "@components/skeleton/footer/Footer-Container";
+import HeaderTitle from "@components/common/typography/Header-Title";
+import PageContainer from "@components/Page-Container";
+import React from "react";
 import { useTranslation } from "../i18n";
 /**
  * @function Home  Page component for root path.
  */
 const Home: React.FC = () => {
   const { t } = useTranslation(["common"]);
-
-  const test = 5;
-
   return (
     <PageContainer>
       <BodyContainer>

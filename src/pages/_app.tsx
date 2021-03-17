@@ -1,13 +1,13 @@
-import React from "react";
 import App from "next/app";
 import { CssBaseline } from "@material-ui/core";
-import { appWithTranslation } from "../i18n";
+import GlobalStyle from "@components/styled-components/Global-Style";
 import Head from "next/head";
-import { ThemeProvider } from "styled-components";
+import React from "react";
 import { StylesProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "styled-components";
+import { appWithTranslation } from "src/i18n";
 import theme from "../theme";
 import { wrapper } from "../redux/store";
-import GlobalStyle from "../components/styled-components/Global-Style";
 
 /**
  * @class StartupApp Configuration component that is called for each page component.

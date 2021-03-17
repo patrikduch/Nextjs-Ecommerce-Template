@@ -1,9 +1,10 @@
-import { createStore, applyMiddleware } from "redux";
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunkMiddleware from "redux-thunk";
-import reducer from "./reducers/rootReducer";
 import { createWrapper } from "next-redux-wrapper";
+import reducer from "./reducers/rootReducer";
+import thunkMiddleware from "redux-thunk";
 
+// Middleware extension that will be applied 
 const bindMiddleware = (middleware) => {
   if (process.env.NODE_ENV !== "production") {
     return composeWithDevTools(applyMiddleware(...middleware));

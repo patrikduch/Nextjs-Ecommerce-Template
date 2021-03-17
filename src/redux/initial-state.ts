@@ -1,7 +1,7 @@
 //
 const INITIALSTATE = {
   projectDetail: {
-    name: "",
+    name: '',
   },
 };
 

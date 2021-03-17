@@ -14,6 +14,9 @@ RUN npm install --only=production
 # Bundle app source
 COPY . .
 
+# Eslint check
+RUN npm run lint
+
 RUN npm run build
 
 EXPOSE 3000

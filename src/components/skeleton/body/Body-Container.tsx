@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import IStyledComponentProps from "../../../typescript/interfaces/shared/styled-components/IStyled-React-Component-Props";
 import ThemeType from "../../../typescript/types/shared/themes/Theme-Type";
+import styled from "styled-components";
 
 /**
  * @interface IProps => Component`s props interface.
