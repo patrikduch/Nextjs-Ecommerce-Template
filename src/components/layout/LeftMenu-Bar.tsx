@@ -84,7 +84,7 @@ const LeftMenuBar: FC<LeftMenuBarProps> = ({ drawerOpen, handleToggleDrawer }) =
                         <ListItemText primary="Users" />
                     </StyledListItem>
                 </Link>
-                <Link href="/">
+                <Link href="/settings">
                     <StyledListItem button>
                         <ListItemIcon>
                             <SettingsIcon />
