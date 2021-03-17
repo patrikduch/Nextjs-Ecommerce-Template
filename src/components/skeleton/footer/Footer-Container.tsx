@@ -3,7 +3,7 @@ import IStyledComponentProps from '../../../typescript/interfaces/shared/styled-
 import ThemeType from '../../../typescript/types/shared/themes/Theme-Type';
 
 /**
- * @interface IProps => Component`s props interface.
+ * @interface IProps Component`s props interface.
  */
  interface IProps
  extends

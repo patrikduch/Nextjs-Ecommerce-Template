@@ -3,29 +3,11 @@ import App from 'next/app';
 import { CssBaseline } from '@material-ui/core';
 import {appWithTranslation} from '../i18n';
 import Head from 'next/head';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
 import theme from '../theme';
-
 import { wrapper } from '../redux/store';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-	padding: 0;
-    margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    	Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-   }
-
-  *{
-    box-sizing: border-box;
-  }
-
-  #nprogress .bar {
-    z-index: 9999;
-  }
-`;
+import GlobalStyle from '../components/styled-components/Global-Style';
 
 /**
  * @class StartupApp Configuration component that is called for each page component.
