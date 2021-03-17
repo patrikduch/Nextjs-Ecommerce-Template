@@ -49,3 +49,10 @@ docker run -p 80:3000 nextjs-fe-template
 </ul>
 
 
+## linting
+
+
+<ul>
+    <li>eslint-plugin-simple-import-sort JS library</li>
+</ul>
+

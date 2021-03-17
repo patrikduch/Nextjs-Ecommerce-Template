@@ -1,10 +1,9 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import ThemeType from "../../../typescript/types/shared/themes/Theme-Type";
 import IStyledComponentProps from "../../../typescript/interfaces/shared/styled-components/IStyled-React-Component-Props";
+import ThemeType from "../../../typescript/types/shared/themes/Theme-Type";
+import styled from "styled-components";
 
 /* Component`s props interface */
-interface IHeaderTitleProps extends ThemeType, IStyledComponentProps {}
+interface IHeaderTitleProps extends ThemeType, IStyledComponentProps { }
 
 /**
  * @function HeaderTitle => Component that displays title of application mostly => top heading.
@@ -17,5 +16,5 @@ const HeaderTitle: React.FC<IHeaderTitleProps> = ({ children, className }) => {
 
 /* Style of common component. */
 export default styled(HeaderTitle)`
-    text-align: center;
+  text-align: center;
 `;

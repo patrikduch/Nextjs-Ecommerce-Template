@@ -1,8 +1,8 @@
 //
 const INITIALSTATE = {
-    projectDetail: {
-        name: ''
-    }
+  projectDetail: {
+    name: "",
+  },
 };
 
 export default INITIALSTATE;

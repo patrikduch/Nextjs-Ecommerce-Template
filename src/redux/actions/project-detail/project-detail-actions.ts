@@ -10,9 +10,9 @@ export const fetchProjectDetail = () => async (dispatch: Dispatch) => {
     dispatch({
       type: actionTypes.FETCH_PROJECT_DETAIL_SUCCESS,
       payload: {
-          data: {
-              name: 'Test projectname'
-          }
+        data: {
+          name: "Test projectname",
+        },
       },
     });
   } catch {
