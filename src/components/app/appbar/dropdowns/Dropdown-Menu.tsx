@@ -1,4 +1,4 @@
-import StyledAppbarMenu from './Styled-Appbar-Menu';
+import StyledDropdownMenu from './Styled-Dropdown-Menu';
 import { MenuItem } from '@material-ui/core';
 import { useRouter } from 'next/router';
 
@@ -23,7 +23,7 @@ const AppbarDropdownMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, handleMenu
     const router = useRouter();
 
     return (
-        <StyledAppbarMenu
+        <StyledDropdownMenu
             anchorEl={anchorEl}
             anchorOrigin={{
                 vertical: 'bottom',
@@ -40,7 +40,7 @@ const AppbarDropdownMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, handleMenu
         >
             <MenuItem onClick={() => router.push("/profile")}>Můj účet</MenuItem>
             <MenuItem onClick={() => console.log("TODO: Logout functionality")}>Odhlásit se</MenuItem>
-        </StyledAppbarMenu>
+        </StyledDropdownMenu>
     );
 }
 
