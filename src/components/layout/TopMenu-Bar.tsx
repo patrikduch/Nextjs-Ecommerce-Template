@@ -7,10 +7,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { useRouter } from 'next/router';
-import React from 'react';
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-
 import { Link } from '../../i18n';
 
 const StyledAppBar = styled(AppBar)`
@@ -60,7 +58,7 @@ const StyledMenu = styled(Menu)`
   transform: translate(0, 50px);
 `;
 
-const TopMenuBar: FC = () => {
+const TopMenuBar: React.FC = () => {
     const router = useRouter();
 
     const [anchorEl, setAnchorEl] = useState(null);

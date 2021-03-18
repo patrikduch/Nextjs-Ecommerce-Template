@@ -1,11 +1,21 @@
-import LayoutContainer from "@components/layout/Layout-Container";
+import MainLayout from '@components/layout/Main-Layout';
+import { Grid, Typography } from '@material-ui/core';
 
+/**
+ * @function SettingsPage Admin settings page component.
+ * @returns JSX markup.
+ */
 const SettingsPage: React.FC = () => {
-
     return (
-        <LayoutContainer>
-            <h1>General settings</h1>
-        </LayoutContainer>
+        <MainLayout>
+            <Grid container>
+                <Grid item xs={10}>
+                    <Typography component="h1" variant="h5">
+                        Settings
+                    </Typography>
+                </Grid>
+            </Grid>
+        </MainLayout>
     );
 }
 

@@ -1,6 +1,6 @@
 import LeftMenuBar from '@components/layout/LeftMenu-Bar';
-import PageContainer from '@components/Page-Container';
 import TopMenuBar from '@components/layout/TopMenu-Bar';
+import MainLayout from './Main-Layout';
 
 /**
  * @function LayoutContainer Encapsulation of layout design, that is shared for each admin page.
@@ -8,11 +8,13 @@ import TopMenuBar from '@components/layout/TopMenu-Bar';
 const LayoutContainer: React.FC = ({ children }) => {
 
     return (
-        <PageContainer>
-            { children}
+        <>
+            <MainLayout>
+                {children}
+            </MainLayout>
             <TopMenuBar />
             <LeftMenuBar />
-        </PageContainer>
+        </>
     );
 };
 

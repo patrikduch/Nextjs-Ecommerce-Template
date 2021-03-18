@@ -1,4 +1,6 @@
-import LayoutContainer from "@components/layout/Layout-Container";
+import MainLayout from '@components/layout/Main-Layout';
+import { Grid, Typography } from '@material-ui/core';
+import React from 'react';
 
 /**
  * @function UserPage User page component.
@@ -7,9 +9,15 @@ import LayoutContainer from "@components/layout/Layout-Container";
 const UserPage: React.FC = () => {
 
     return (
-        <LayoutContainer>
-            <h1>List of Users</h1>
-        </LayoutContainer>
+        <MainLayout>
+            <Grid container>
+                <Grid item xs={10}>
+                    <Typography component="h1" variant="h5">
+                        Users
+                    </Typography>
+                </Grid>
+            </Grid>
+        </MainLayout>
     );
 }
 
