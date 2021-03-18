@@ -1,17 +1,21 @@
 import { Grid, Typography } from '@material-ui/core';
 import MainContainer from '@components/layout/Main-Container';
+import { useTranslation } from 'src/i18n';
 
 /**
  * @function ProfilePage Display information about current administrator.
  */
 const ProfilePage: React.FC = () => {
+
+    const { t } = useTranslation(['profilepage']);
+
     return (
         <MainContainer>
             <Grid container>
                 <Grid item xs={10}>
                     <Typography component="h1" variant="h5">
-                        Profile
-                </Typography>
+                        {t('pagetitle')}
+                    </Typography>
                 </Grid>
             </Grid>
         </MainContainer>
