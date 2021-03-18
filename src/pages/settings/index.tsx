@@ -1,5 +1,5 @@
-import MainLayout from '@components/layout/Main-Layout';
 import { Grid, Typography } from '@material-ui/core';
+import MainContainer from '@components/layout/Main-Container';
 
 /**
  * @function SettingsPage Admin settings page component.
@@ -7,7 +7,7 @@ import { Grid, Typography } from '@material-ui/core';
  */
 const SettingsPage: React.FC = () => {
     return (
-        <MainLayout>
+        <MainContainer>
             <Grid container>
                 <Grid item xs={10}>
                     <Typography component="h1" variant="h5">
@@ -15,7 +15,7 @@ const SettingsPage: React.FC = () => {
                     </Typography>
                 </Grid>
             </Grid>
-        </MainLayout>
+        </MainContainer>
     );
 }
 

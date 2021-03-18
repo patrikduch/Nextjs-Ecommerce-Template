@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import IStyledComponentProps from '@typescript/interfaces/shared/styled-components/IStyled-React-Component-Props';
 import styled, { css } from 'styled-components';
-import { useTranslation } from '../../i18n';
-import LeftMenuBar from './LeftMenu-Bar';
-import TopMenuBar from './TopMenu-Bar';
 
-const Root = styled.div`
-  display: flex;
-`;
+/**
+ * @interface IProps Component`s props interface.
+ */
+interface IProps extends IStyledComponentProps {
+    open: boolean;
+}
 
-const Main = styled.div<{ open: boolean }>`
-  margin-top: 64px;
+/**
+ * @function MainLayout Stylization of main element for admin page.
+ */
+const MainLayout: React.FC<IProps> = ({ children, className }) => {
+
+    return (
+        <main className={className}>
+            { children}
+        </main>
+    );
+}
+
+export default styled(MainLayout)`
+
+margin-top: 64px;
   margin-left: 75px;
   padding: 30px;
 
@@ -24,28 +37,4 @@ const Main = styled.div<{ open: boolean }>`
         css`
       margin-left: 240px;
     `}
-`;
-
-/**
- * @function MainLayout Encapsulation component that contains all necessary stylization for each admin page.
- * @param children  Nested content that can be passed into this encapsulation component.
- * @returns JSX designed content of administration.
- */
-const MainLayout: React.FC = ({ children }) => {
-    const { t } = useTranslation('common');
-    const [drawerOpen, setDrawerOpen] = useState(true);
-
-    const handleToggleDrawer = () => {
-        setDrawerOpen(!drawerOpen);
-    };
-
-    return (
-        <Root>
-            <TopMenuBar />
-            <LeftMenuBar drawerOpen={drawerOpen} handleToggleDrawer={handleToggleDrawer} />
-            <Main open={drawerOpen}>{children}</Main>
-        </Root>
-    );
-};
-
-export default MainLayout;
+`

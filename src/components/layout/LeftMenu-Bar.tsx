@@ -6,7 +6,6 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import SettingsIcon from '@material-ui/icons/Settings';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import GroupIcon from '@material-ui/icons/Group';
-import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from '../../i18n';
 
@@ -61,7 +60,7 @@ interface LeftMenuBarProps {
     handleToggleDrawer?: () => void;
 }
 
-const LeftMenuBar: FC<LeftMenuBarProps> = ({ drawerOpen, handleToggleDrawer }) => {
+const LeftMenuBar: React.FC<LeftMenuBarProps> = ({ drawerOpen, handleToggleDrawer }) => {
     return (
         <StyledDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
             <List>
