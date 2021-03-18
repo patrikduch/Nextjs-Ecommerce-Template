@@ -1,7 +1,9 @@
-import { AppBar, Button, Menu, MenuItem } from '@material-ui/core';
+import AppBarDesktopSection from '@components/app/appbar/desktop/Appbar-Desktop-Section';
+import AppBarMobileSection from '@components/app/appbar/mobile/Appbar-Mobile-Section';
+import AppbarNavitem from '@components/app/appbar/Appbar-Nav-Item';
+import { Button, Menu, MenuItem } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -9,42 +11,10 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styled from 'styled-components';
+import StyledAppBar from '@components/app/appbar/Styled-Appbar';
+import StyledToolbar from '@components/app/appbar/Styled-Toolbar';
 import { Link } from '../../i18n';
 
-const StyledAppBar = styled(AppBar)`
-  z-index: ${({ theme }) => theme.zIndex.drawer + 1};
-
-  transition: ${({ theme }) =>
-        theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        })};
-`;
-
-const StyledToolbar = styled(Toolbar)`
-  padding-right: 24;
-`;
-
-const SectionDesktop = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    display: flex;
-  }
-`;
-
-const SectionMobile = styled.div`
-  display: flex;
-
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    display: none;
-  }
-`;
-
-const Title = styled(Typography)`
-  flex-grow: 1;
-  cursor: pointer;
-`;
 
 const AccountDetail = styled(Button)`
   text-transform: none;
@@ -140,11 +110,11 @@ const TopMenuBar: React.FC = () => {
             <StyledAppBar color="primary" position="fixed">
                 <StyledToolbar>
                     <Link href="/">
-                        <Title variant="h6" color="inherit" noWrap>
+                        <AppbarNavitem variant="h6" color="inherit" noWrap>
                             Bc. Patrik Duch
-                        </Title>
+                        </AppbarNavitem>
                     </Link>
-                    <SectionDesktop>
+                    <AppBarDesktopSection>
                         <IconButton color="inherit">
                             <Badge badgeContent={17} color="secondary">
                                 <NotificationsIcon />
@@ -154,12 +124,13 @@ const TopMenuBar: React.FC = () => {
                             <AccountCircle />
                             <UserEmail>{"duchpatrik@icloud.com"}</UserEmail>
                         </AccountDetail>
-                    </SectionDesktop>
-                    <SectionMobile>
+                    </AppBarDesktopSection>
+
+                    <AppBarMobileSection>
                         <IconButton onClick={handleMobileMenuOpen} color="inherit">
                             <MoreIcon />
                         </IconButton>
-                    </SectionMobile>
+                    </AppBarMobileSection>
                 </StyledToolbar>
             </StyledAppBar>
             {renderMobileMenu}
