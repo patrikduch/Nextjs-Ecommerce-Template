@@ -1,6 +1,7 @@
 import StyledDropdownMenu from './Styled-Dropdown-Menu';
 import { MenuItem } from '@material-ui/core';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'src/i18n';
 
 /**
  * @interface IProps Component`s props interface.
@@ -21,6 +22,7 @@ const AppbarDropdownMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, handleMenu
 
     const menuId = 'primary-search-account-menu';
     const router = useRouter();
+    const { t } = useTranslation(['navbar']);
 
     return (
         <StyledDropdownMenu
@@ -38,8 +40,8 @@ const AppbarDropdownMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, handleMenu
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={() => router.push("/profile")}>Můj účet</MenuItem>
-            <MenuItem onClick={() => console.log("TODO: Logout functionality")}>Odhlásit se</MenuItem>
+            <MenuItem onClick={() => router.push("/profile")}>{t('profile_dropdown_url')}</MenuItem>
+            <MenuItem onClick={() => console.log("TODO: Logout functionality")}>{t('logout_dropdown_url')}</MenuItem>
         </StyledDropdownMenu>
     );
 }

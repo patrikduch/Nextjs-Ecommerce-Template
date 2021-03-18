@@ -6,7 +6,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import GroupIcon from '@material-ui/icons/Group';
 import styled from 'styled-components';
-import { Link } from '../../../i18n';
+import { Link, useTranslation } from '../../../i18n';
 import SidebarDrawer from './Sidebar-Drawer';
 
 const StyledPaper = styled.div`
@@ -42,6 +42,9 @@ interface IProps {
  * @returns 
  */
 const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) => {
+
+    const { t } = useTranslation(['sidebar']);
+
     return (
         <SidebarDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
             <List>
@@ -61,7 +64,7 @@ const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) 
                         <ListItemIcon>
                             <GroupIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Users" />
+                        <ListItemText primary={t('users_sideitem_label')} />
                     </StyledListItem>
                 </Link>
                 <Link href="/settings">
@@ -69,7 +72,7 @@ const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) 
                         <ListItemIcon>
                             <SettingsIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Settings" />
+                        <ListItemText primary={t('settings_sideitem_label')} />
                     </StyledListItem>
                 </Link>
             </List>

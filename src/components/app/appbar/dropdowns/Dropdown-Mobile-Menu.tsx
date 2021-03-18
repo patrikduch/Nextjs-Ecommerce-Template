@@ -4,6 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Menu, MenuItem } from '@material-ui/core';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import { useTranslation } from 'src/i18n';
 
 /**
  * @interface IProps Component`s props interface.
@@ -26,6 +27,8 @@ const AppbarDropdownMobileMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, hand
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
 
+    const { t } = useTranslation(['sidebar']);
+
     return (
         <Menu
             anchorEl={anchorEl}
@@ -42,13 +45,13 @@ const AppbarDropdownMobileMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, hand
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
-                <p>Notifications</p>
+                <p>{t('notification_label')}</p>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton color="inherit">
                     <AccountCircle />
                 </IconButton>
-                <p>Profile</p>
+                <p>{t('profile_label')}</p>
             </MenuItem>
         </Menu>
     );

@@ -70,7 +70,7 @@ const TopMenuBar: React.FC = () => {
                 <StyledToolbar>
                     <Link href="/">
                         <AppbarNavitem variant="h6" color="inherit" noWrap>
-                            Název projektu
+                            Project name
                         </AppbarNavitem>
                     </Link>
                     <AppBarDesktopSection>
