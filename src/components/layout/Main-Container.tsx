@@ -1,7 +1,7 @@
 import IStyledComponentProps from '@typescript/interfaces/shared/styled-components/IStyled-React-Component-Props';
 import { useState } from 'react';
 import styled from 'styled-components';
-import LeftMenuBar from './LeftMenu-Bar';
+import LeftMenuBar from '../app/sidebar/Sidebar-Container';
 import MainLayout from './Main-Layout';
 import TopMenuBar from './TopMenu-Bar';
 

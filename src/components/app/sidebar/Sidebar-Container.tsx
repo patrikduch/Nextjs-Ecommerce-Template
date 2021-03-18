@@ -1,42 +1,13 @@
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import SettingsIcon from '@material-ui/icons/Settings';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import GroupIcon from '@material-ui/icons/Group';
-import styled, { css } from 'styled-components';
-import { Link } from '../../i18n';
-
-const StyledDrawer = styled(Drawer)`
-  z-index: ${({ theme }) => theme.zIndex.drawer};
-
-  overflow: hidden;
-  width: 75px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
-
-  transition: ${({ theme }) =>
-        theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        })};
-
-  ${({ open, theme }) =>
-        open &&
-        css`
-      width: 240px;
-
-      transition: ${theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        })};
-    `}
-`;
+import styled from 'styled-components';
+import { Link } from '../../../i18n';
+import SidebarDrawer from './Sidebar-Drawer';
 
 const StyledPaper = styled.div`
   margin-top: 64px;
@@ -55,14 +26,24 @@ const ToggleMenu = styled(StyledListItem)`
   bottom: 70px;
 `;
 
-interface LeftMenuBarProps {
+
+/**
+ * @interface IProps Component`s props interface.
+ */
+interface IProps {
     drawerOpen?: boolean;
     handleToggleDrawer?: () => void;
 }
 
-const LeftMenuBar: React.FC<LeftMenuBarProps> = ({ drawerOpen, handleToggleDrawer }) => {
+/**
+ * @function SidebarContainer Left sidebar for admin portal.
+ * @param drawerOpen State of menu visibility.
+ * @param handleToggleDrawer Event handler for chaning menu visibility.
+ * @returns 
+ */
+const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) => {
     return (
-        <StyledDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
+        <SidebarDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
             <List>
                 <Link href="/">
                     <StyledListItem button>
@@ -97,8 +78,8 @@ const LeftMenuBar: React.FC<LeftMenuBarProps> = ({ drawerOpen, handleToggleDrawe
                     <MenuOpenIcon />
                 </ListItemIcon>
             </ToggleMenu>
-        </StyledDrawer>
+        </SidebarDrawer>
     );
 };
 
-export default LeftMenuBar;
+export default SideBarContainer;
