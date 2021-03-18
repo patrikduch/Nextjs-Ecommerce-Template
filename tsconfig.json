@@ -26,6 +26,9 @@
       "@typescript/*": [
         "./src/typescript/*"
       ],
+      "@redux/*": [
+        "./src/redux/*"
+      ]
     }
   },
   "exclude": [
