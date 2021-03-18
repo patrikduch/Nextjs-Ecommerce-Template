@@ -1,35 +1,28 @@
+import AppbarAccountInfo from '../app/appbar/Appbar-Account-Info';
 import AppBarDesktopSection from '@components/app/appbar/desktop/Appbar-Desktop-Section';
 import AppBarMobileSection from '@components/app/appbar/mobile/Appbar-Mobile-Section';
 import AppbarNavitem from '@components/app/appbar/Appbar-Nav-Item';
-import { Button, Menu, MenuItem } from '@material-ui/core';
+
+import { Menu, MenuItem } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styled from 'styled-components';
 import StyledAppBar from '@components/app/appbar/Styled-Appbar';
 import StyledToolbar from '@components/app/appbar/Styled-Toolbar';
 import { Link } from '../../i18n';
+import AppbarMenu from '@components/app/appbar/menu/Appbar-Dropdown-Menu';
 
-
-const AccountDetail = styled(Button)`
-  text-transform: none;
-`;
 
 const UserEmail = styled(Typography)`
   margin-left: 5px;
 `;
 
-const StyledMenu = styled(Menu)`
-  transform: translate(0, 50px);
-`;
-
 const TopMenuBar: React.FC = () => {
-    const router = useRouter();
 
     const [anchorEl, setAnchorEl] = useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -54,28 +47,6 @@ const TopMenuBar: React.FC = () => {
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
-
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <StyledMenu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-            }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-            }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={() => router.push('/')}>Můj účet</MenuItem>
-            <MenuItem onClick={null}>Odhlásit se</MenuItem>
-        </StyledMenu>
-    );
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
@@ -111,7 +82,7 @@ const TopMenuBar: React.FC = () => {
                 <StyledToolbar>
                     <Link href="/">
                         <AppbarNavitem variant="h6" color="inherit" noWrap>
-                            Bc. Patrik Duch
+                            Název projektu
                         </AppbarNavitem>
                     </Link>
                     <AppBarDesktopSection>
@@ -120,10 +91,10 @@ const TopMenuBar: React.FC = () => {
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>
-                        <AccountDetail onClick={handleProfileMenuOpen} color="inherit">
+                        <AppbarAccountInfo onClick={handleProfileMenuOpen} color="inherit">
                             <AccountCircle />
                             <UserEmail>{"duchpatrik@icloud.com"}</UserEmail>
-                        </AccountDetail>
+                        </AppbarAccountInfo>
                     </AppBarDesktopSection>
 
                     <AppBarMobileSection>
@@ -134,7 +105,7 @@ const TopMenuBar: React.FC = () => {
                 </StyledToolbar>
             </StyledAppBar>
             {renderMobileMenu}
-            {renderMenu}
+            <AppbarMenu anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
         </>
     );
 };

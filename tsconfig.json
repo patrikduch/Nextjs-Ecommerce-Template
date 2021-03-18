@@ -23,6 +23,9 @@
       "@components/*": [
         "./src/components/*"
       ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
       "@typescript/*": [
         "./src/typescript/*"
       ],
