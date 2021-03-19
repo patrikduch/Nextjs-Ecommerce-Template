@@ -11,24 +11,28 @@ interface IProps extends IStyledComponentProps {
     isActive?: boolean;
     langCode: string;
 
+    handleLangStateChange: (langCode: string) => void;
 }
 
 /**
  * @function LanguageChooserCTA CTA button fotr changing current language.
  * @param className Generated classname via "styled-components" library.
  * @param displayName Button's label name.
- * @param isActive 
+ * @param isActive Activity flag for the particular CTA button.
  * @param langName Language code for the particular CTA button.
- * @returns
+ * @returns JSX markup of CTA language chooser button.
  */
-const LanguageChooserCTA: React.FC<IProps> = ({ className, displayName, isActive, langCode }) => {
+const LanguageChooserCTA: React.FC<IProps> = ({ className, displayName, handleLangStateChange, isActive, langCode }) => {
 
     /**
     * Event handler for changin current language of whole admin portal.
-    * @param langName String representation of target language ("cs", "en" etc.)
+    * @param langCode String representation of target language ("cs", "en" etc.)
     */
-    const handleLanguageChange = (langName: string) => {
-        i18n.changeLanguage(langName);
+    const handleLanguageChange = (langCode: string) => {
+        i18n.changeLanguage(langCode);
+
+        // Change the state on the parrent component
+        handleLangStateChange(langCode);
     }
 
     return (

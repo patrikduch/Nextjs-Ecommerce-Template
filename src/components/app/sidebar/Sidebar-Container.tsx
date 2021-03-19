@@ -11,6 +11,7 @@ import GroupIcon from '@material-ui/icons/Group';
 import styled from 'styled-components';
 import { Link, useTranslation } from '../../../i18n';
 import SidebarDrawer from './Sidebar-Drawer';
+import { useEffect, useState } from 'react';
 
 const StyledPaper = styled.div`
   margin-top: 64px;
@@ -48,6 +49,19 @@ const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) 
 
     const { t } = useTranslation(['sidebar']);
 
+    const [language, setLanguage] = useState("");
+
+
+    useEffect(() => {
+        setLanguage(i18n.language);
+    }, []);
+
+    const handleLangStateChange = (langCode: string) => {
+        setLanguage(langCode);
+    };
+
+
+
     return (
         <SidebarDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
             <List>
@@ -82,8 +96,8 @@ const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) 
                 <hr />
 
                 <LanguageChooserContainer>
-                    <LanguageChooserCTA langCode='en' displayName='en' isActive={i18n.language == 'en'} />
-                    <LanguageChooserCTA langCode='cs' displayName='cz' isActive={i18n.language == 'cs'} />
+                    <LanguageChooserCTA langCode='en' displayName='en' isActive={language == 'en'} handleLangStateChange={handleLangStateChange} />
+                    <LanguageChooserCTA langCode='cs' displayName='cz' isActive={language == 'cs'} handleLangStateChange={handleLangStateChange} />
                 </LanguageChooserContainer>
 
             </List>
