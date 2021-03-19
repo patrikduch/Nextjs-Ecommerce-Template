@@ -1,12 +1,13 @@
 import MainContainer from '@components/layout/Main-Container';
 import { Grid, Typography } from '@material-ui/core';
+import { NextPage } from 'next';
 import { useTranslation } from 'src/i18n';
 
 /**
  * @function UserPage User page component.
  * @returns JSX markup for listing collection of users.
  */
-const UserPage: React.FC = () => {
+const UserPage: NextPage = () => {
 
     const { t } = useTranslation(['userspage']);
 

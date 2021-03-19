@@ -9,8 +9,8 @@ interface IProps extends ThemeType, IStyledComponentProps { }
 
 /**
  * @function HeaderTitle => Component that displays title of application mostly => top heading.
- * @param children => Content node that is placed inside this common component.
- * @param className => Generated classname via "styled-components" library.
+ * @param children Content node that is placed inside this common component.
+ * @param className Generated classname via "styled-components" library.
  */
 const HeaderTitle: React.FC<IProps> = ({ children, className }) => {
   return <h1 className={className}>{children}</h1>;

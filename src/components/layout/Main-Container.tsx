@@ -12,7 +12,8 @@ interface IProps extends IStyledComponentProps { }
 
 /**
  * @function MainLayout Encapsulation component that contains all necessary stylization for each admin page.
- * @param children  Nested content that can be passed into this encapsulation component.
+ * @param children Content node that is placed inside this common component.
+ * @param className Generated classname via "styled-components" library.
  * @returns JSX designed content of administration.
  */
 const MainContainer: React.FC<IProps> = ({ children, className }) => {

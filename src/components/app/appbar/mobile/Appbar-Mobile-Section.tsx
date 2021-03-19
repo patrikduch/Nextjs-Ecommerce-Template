@@ -6,12 +6,17 @@ import styled from 'styled-components';
  */
 interface IProps extends IStyledComponentProps { }
 
+/**
+ * @function AppbarMobileSection 
+ * @param children
+ * @param className
+ */
 const AppbarMobileSection: React.FC<IProps> = ({ children, className }) => {
 
     return (
-        <div className={className}>
+        <section className={className}>
             { children}
-        </div>
+        </section>
     );
 }
 

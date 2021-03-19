@@ -1,11 +1,13 @@
 import React from "react";
 import MainContainer from '@components/layout/Main-Container';
+import { NextPage } from "next";
 import { Grid, Typography } from "@material-ui/core";
 
 /**
- * @function Home  Page component for root path.
+ * @function Homepage Page component for root path.
+ * @return JSX markup that consists all components for the Homepage.
  */
-const Home: React.FC = () => {
+const Homepage: NextPage = () => {
   return (
     <MainContainer>
       <Grid container>
@@ -19,4 +21,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Homepage;
