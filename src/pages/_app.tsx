@@ -52,7 +52,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
 
   await (store as StoreTypeObj).dispatch(getProjectDetail());
 
-
   const pageProps = await App.getInitialProps(appContext);
   return {
     pageProps,
