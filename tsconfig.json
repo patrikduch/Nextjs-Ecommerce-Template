@@ -20,11 +20,23 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@core/*": [
+        "./src/core/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],
+      "@connected-components/*": [
+        "src/connected-components/*"
+      ],
       "@contexts/*": [
         "./src/contexts/*"
+      ],
+      "@mocks/*": [
+        "./src/_mocks/*"
       ],
       "@typescript/*": [
         "./src/typescript/*"

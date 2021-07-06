@@ -1,61 +1,63 @@
-import App from "next/app";
-import { CssBaseline } from "@material-ui/core";
-import GlobalStyle from "@components/styled-components/Global-Style";
-import Head from "next/head";
-import React from "react";
-import { StylesProvider } from "@material-ui/core/styles";
-import { ThemeProvider } from "styled-components";
-import { appWithTranslation } from "src/i18n";
-import theme from "../theme";
-import { wrapper } from "../redux/store";
+import App, { AppContext } from 'next/app';
+import { StylesProvider } from '@material-ui/core';
+import { wrapper } from '@redux/store/index';
+import Head from 'next/head';
+import React from 'react';
+import useDidMount from 'src/hooks/dom/component.didmount.hook';
+import { appWithTranslation } from 'src/i18n';
+import { ThemeProvider } from 'styled-components';
+import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
+import { getProjectDetail } from '@redux/actions/project-detail';
+import GlobalStyle from '@components/layout/app/public/styled-components/Global-Style';
+import MainContainer from '@components/layout/app/skeleton/Main-Container';
+import theme from '../theme';
 
-/**
- * @class StartupApp Configuration component that is called for each page component.
- */
-class StartupApp extends App {
-  /**
-   * @function getInitialProps Get initial props for particular page component.
-   * @param Component page component of particular request.
-   * @param ctx context instance of particular request.
-   * @returns page properties.
-   */
-  static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-
-    //Anything returned here can be access by the client
-    return { pageProps: pageProps };
-  }
-
-  render() {
-    //Information that was returned  from 'getInitialProps' are stored in the props i.e. pageProps
-    const { Component, pageProps } = this.props;
-
-    return (
-      <>
-        <Head>
-          <title>Patrik Duch, Solutions Architect</title>
-          <link rel="icon" href="/favicon.ico" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
-          />
-        </Head>
-        <StylesProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <GlobalStyle />
+const MyApp = ({ Component, pageProps }) => {
+  useDidMount(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  });
+  return (
+    <div>
+      <Head>
+        <title>Patrik Duch, Solutions Architect</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+      <StylesProvider injectFirst>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <MainContainer>
             <Component {...pageProps} />
-          </ThemeProvider>
-        </StylesProvider>
-      </>
-    );
-  }
-}
+          </MainContainer>
+        </ThemeProvider>
+      </StylesProvider>
+    </div>
 
-export default wrapper.withRedux(appWithTranslation(StartupApp));
+  );
+};
+
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  const { store } = appContext.ctx;
+  await (store as StoreTypeObj).dispatch(getProjectDetail());
+
+  const pageProps = await App.getInitialProps(appContext);
+  return {
+    pageProps,
+    props: {
+      projectDetail: store.getState().projectDetail
+    }
+  };
+};
+
+export default wrapper.withRedux(appWithTranslation(MyApp));

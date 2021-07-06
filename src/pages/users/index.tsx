@@ -1,4 +1,4 @@
-import MainContainer from '@components/layout/Main-Container';
+import MainContainer from '@components/layout/app/skeleton/Main-Container';
 import { Grid, Typography } from '@material-ui/core';
 import { NextPage } from 'next';
 import { useTranslation } from 'src/i18n';

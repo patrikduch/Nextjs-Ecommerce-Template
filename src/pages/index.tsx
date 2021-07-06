@@ -1,7 +1,5 @@
 import React from "react";
-import MainContainer from '@components/layout/Main-Container';
 import { NextPage } from "next";
-import { Grid, Typography } from "@material-ui/core";
 
 /**
  * @function Homepage Page component for root path.
@@ -9,15 +7,9 @@ import { Grid, Typography } from "@material-ui/core";
  */
 const Homepage: NextPage = () => {
   return (
-    <MainContainer>
-      <Grid container>
-        <Grid item xs={10}>
-          <Typography component="h1" variant="h5">
-            Dashboard
-            </Typography>
-        </Grid>
-      </Grid>
-    </MainContainer>
+    <>
+      HomePage
+    </>
   );
 };
 
