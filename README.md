@@ -1,4 +1,4 @@
-# nextjs-fe-template
+# nextjs-redux-wrapper
 
 ## dockerization
 
