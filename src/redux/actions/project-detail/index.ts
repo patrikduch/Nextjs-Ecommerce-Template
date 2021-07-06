@@ -8,6 +8,7 @@ import { FetchProjectDetailAction } from './types';
  */
 export const getProjectDetail = () => {
   return async (dispatch: Dispatch): Promise<void> => {
+
     const response = await getProjectDetails();
 
     dispatch<FetchProjectDetailAction>({

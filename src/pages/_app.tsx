@@ -49,7 +49,9 @@ const MyApp = ({ Component, pageProps }) => {
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { store } = appContext.ctx;
+
   await (store as StoreTypeObj).dispatch(getProjectDetail());
+
 
   const pageProps = await App.getInitialProps(appContext);
   return {

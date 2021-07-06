@@ -5,7 +5,6 @@
  */
 enum ActionTypes {
     fetchProjectDetailSuccess = 'fetchProjectDetailSuccess',
-    fetchProjectDetailFail = 'fetchProjectDetailFail',
 }
 
 export default ActionTypes;
