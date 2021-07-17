@@ -1,16 +1,14 @@
 import App, { AppContext } from 'next/app';
-import { StylesProvider } from '@material-ui/core';
+import { CssBaseline, StylesProvider, ThemeProvider } from '@material-ui/core';
 import { wrapper } from '@redux/store/index';
 import Head from 'next/head';
 import React from 'react';
 import useDidMount from 'src/hooks/dom/component.didmount.hook';
 import { appWithTranslation } from 'src/i18n';
-import { ThemeProvider } from 'styled-components';
 import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 import { getProjectDetail } from '@redux/actions/project-detail';
-import GlobalStyle from '@components/layout/app/public/styled-components/Global-Style';
-import MainContainer from '@components/layout/app/skeleton/Main-Container';
 import theme from '../theme';
+import MainContainer from '@components/layout/app/public/skeleton/Main-Container';
 
 const MyApp = ({ Component, pageProps }) => {
   useDidMount(() => {
@@ -34,14 +32,15 @@ const MyApp = ({ Component, pageProps }) => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <StylesProvider injectFirst>
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        {/* The rest of your application */}
+        <CssBaseline />
+        <StylesProvider injectFirst>
           <MainContainer>
             <Component {...pageProps} />
           </MainContainer>
-        </ThemeProvider>
-      </StylesProvider>
+        </StylesProvider>
+      </ThemeProvider>
     </div>
 
   );
