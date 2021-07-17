@@ -2,10 +2,10 @@
 
 ## dockerization
 
-### build image
+build image
 docker build -f Dockerfile -t nextjs-fe-template .
 
-### run image
+run image
 docker run -p 80:3000 nextjs-fe-template
 
 ## stylization
