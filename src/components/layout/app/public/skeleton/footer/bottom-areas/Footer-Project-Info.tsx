@@ -13,7 +13,7 @@ const FooterProjectInfo: React.FC = () => {
                 <ProjectNameContainer />
             </Typography>
             <Typography color="textPrimary" gutterBottom>
-                E-commerce template powered by GraphQL and Next.js
+                Advanced TypeScript Next.js Redux-Wrapper frontend template.
             </Typography>
         </Grid>
     );
