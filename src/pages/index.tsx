@@ -1,7 +1,5 @@
-import React from "react";
-import { NextPage } from "next";
-import { ProjectNameContainer } from '@redux/containers/project-detail/Project-Detail-Container';
-
+import React from 'react';
+import { NextPage } from 'next';
 /**
  * @function Homepage Page component for root path.
  * @return JSX markup that consists all components for the Homepage.
@@ -9,7 +7,6 @@ import { ProjectNameContainer } from '@redux/containers/project-detail/Project-D
 const Homepage: NextPage = () => {
   return (
     <>
-      <ProjectNameContainer />
       HomePage
     </>
   );
