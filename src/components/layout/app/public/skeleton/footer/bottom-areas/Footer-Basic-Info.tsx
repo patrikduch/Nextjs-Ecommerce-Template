@@ -1,5 +1,6 @@
 import { Grid, Link, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'src/i18n';
 
 const useStyles = makeStyles(() => ({
     ul: {
@@ -15,22 +16,23 @@ const useStyles = makeStyles(() => ({
  */
 const FooterBasicInfo: React.FC = () => {
     const classes = useStyles();
+    const { t } = useTranslation(['public/skeleton/footer/general-info']);
 
     return (
         <Grid item xs={6} sm={3}>
             <Typography variant="h6" color="textPrimary" gutterBottom>
-                Information
+                {t('general_info')}
             </Typography>
 
             <ul className={classes.ul}>
                 <li>
                     <Link href="/#" variant="subtitle1" color="textSecondary">
-                        About Us
+                        {t('about_us')}
                     </Link>
                 </li>
                 <li>
                     <Link href="/#" variant="subtitle1" color="textSecondary">
-                        Terms {'& Conditions'}
+                        {t('terms_conditions')}
                     </Link>
                 </li>
                 <li>
@@ -40,7 +42,7 @@ const FooterBasicInfo: React.FC = () => {
                 </li>
                 <li>
                     <Link href="/#" variant="subtitle1" color="textSecondary">
-                        Claims and Returns
+                        {t('claims_returns')}
                     </Link>
                 </li>
             </ul>

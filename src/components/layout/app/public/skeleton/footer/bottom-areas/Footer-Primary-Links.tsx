@@ -1,6 +1,7 @@
 import { makeStyles, Grid, Typography, Link } from '@material-ui/core';
 import { ProjectNameContainer } from '@redux/containers/project-detail/Project-Detail-Container';
 import React from 'react';
+import { useTranslation } from 'src/i18n';
 
 const useStyles = makeStyles(() => ({
     ul: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles(() => ({
  */
 const FooterPrimaryLinks: React.FC = () => {
     const classes = useStyles();
+    const { t } = useTranslation(['public/skeleton/footer/project-info']);
 
     return (
         <Grid item xs={6} sm={3}>
@@ -26,17 +28,17 @@ const FooterPrimaryLinks: React.FC = () => {
             <ul className={classes.ul}>
                 <li>
                     <Link href="/#" variant="subtitle1" color="textSecondary">
-                        Privacy Policy
+                        {t('privacy_policy')}
                     </Link>
                 </li>
                 <li>
                     <Link href="/#" variant="subtitle1" color="textSecondary">
-                        Delivery Options
+                        {t('delivery_options')}
                     </Link>
                 </li>
                 <li>
                     <Link href="/#" variant="subtitle1" color="textSecondary">
-                        FAQ
+                        {t('faq')}
                     </Link>
                 </li>
             </ul>

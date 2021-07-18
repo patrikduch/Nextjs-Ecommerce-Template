@@ -36,9 +36,9 @@ const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
     const getLangImage = (langCode: string): string => {
         switch (langCode) {
             case 'cs':
-                return '/czechflag.png';
+                return '/images/flags/czechflag.png';
             case 'en':
-                return '/usaflag.jpg';
+                return '/images/flags/usaflag.jpg';
         }
     };
 

@@ -1,5 +1,6 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'src/i18n';
 
 const useStyles = makeStyles(() => ({
     ul: {
@@ -20,11 +21,12 @@ const useStyles = makeStyles(() => ({
  */
 const FooterContactUsInfo: React.FC = () => {
     const classes = useStyles();
+    const { t } = useTranslation(['public/skeleton/footer/contact-info']);
 
     return (
         <Grid item xs={6} sm={3}>
             <Typography variant="h6" color="textPrimary" gutterBottom>
-                Contact
+                {t('contact_info')}
             </Typography>
 
             <ul className={classes.ul}>
