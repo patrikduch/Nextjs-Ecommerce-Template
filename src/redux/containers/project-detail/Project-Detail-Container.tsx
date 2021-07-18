@@ -1,3 +1,4 @@
+import { getprojectNameSelector } from '@redux/selectors/project-detail/project-detail-selector';
 import React from 'react';
 import { connect, ConnectedComponent } from 'react-redux';
 
@@ -10,7 +11,7 @@ import ProjectName, { ProjectNamePropsType } from 'src/connected-components/proj
  */
 const mapStateToProps = (state: { projectDetail: { projectName: string } }) => {
     return {
-        projectName: state.projectDetail.projectName
+        projectName: getprojectNameSelector(state.projectDetail)
     };
 };
 
