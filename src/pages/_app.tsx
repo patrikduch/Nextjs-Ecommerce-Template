@@ -9,6 +9,7 @@ import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 import { getProjectDetail } from '@redux/actions/project-detail';
 import theme from '../theme';
 import MainContainer from '@components/layout/app/public/skeleton/Main-Container';
+import { i18n } from 'src/i18n';
 
 const MyApp = ({ Component, pageProps }) => {
   useDidMount(() => {
@@ -17,6 +18,9 @@ const MyApp = ({ Component, pageProps }) => {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
+
+    i18n.changeLanguage('cs');
+
   });
   return (
     <div>

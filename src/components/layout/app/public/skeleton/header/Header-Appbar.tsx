@@ -1,9 +1,16 @@
-import { AppBar, Button, Tab, Tabs, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import HeaderTitle from './Header-Title';
-import { ProjectNameContainer } from '@redux/containers/project-detail/Project-Detail-Container';
+import { useTranslation } from 'src/i18n';
+import HeaderProjectLogo from './Header-Project-Logo';
+import HeaderMenuContainer from './header-menu/Header-Menu-Container';
+import HeaderMenuItem from './header-menu/Header-Menu-Item';
+import HeaderLanguageChooser from './Header-Language-Chooser';
+
+/**
+ * @interface IProps Component's props interface.
+ */
+interface IProps { }
 
 const useStyles = makeStyles((theme) => ({
     toolbarMargin: {
@@ -11,15 +18,6 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         backgroundColor: '#000000'
-    },
-    tabContainer: {
-        marginLeft: 'auto',
-        color: '#ffff'
-    },
-    tab: {
-        ...theme.typography.tab,
-        minWidth: 10,
-        marginLeft: '25px'
     },
     freeEstimateBtn: {
         borderRadius: '50px',
@@ -32,9 +30,11 @@ const useStyles = makeStyles((theme) => ({
  * @function HeaderAppbar Header custom appbar.
  * @returns JSX that renders header navigation bar.
  */
-const HeaderAppbar: React.FC = () => {
+const HeaderAppbar: React.FC<IProps> = () => {
     const classes = useStyles();
     const [tabValue, setTabValue] = useState(0);
+    const [langcode, setLangcode] = useState('cs');
+    const { t } = useTranslation(['public/skeleton/header/appbar']);
 
     /**
      * @function handleActiveTabChange Change active indicator for appbar navigation.
@@ -44,13 +44,23 @@ const HeaderAppbar: React.FC = () => {
         setTabValue(value);
     };
 
+    const handleChangeLangcode = () => {
+        if (langcode === 'cs') {
+            setLangcode('en');
+        } else {
+            setLangcode('cs');
+        }
+    };
+
     useEffect(() => {
         if (window.location.pathname === '/' && tabValue !== 0) {
             setTabValue(0);
-        } else if (window.location.pathname === '/aboutus' && tabValue !== 1) {
+        } else if (window.location.pathname === '/services' && tabValue !== 1) {
             setTabValue(1);
+        } else if (window.location.pathname === '/aboutus' && tabValue !== 1) {
+            setTabValue(3);
         } else if (window.location.pathname === '/contactus' && tabValue !== 2) {
-            setTabValue(2);
+            setTabValue(4);
         }
     }, []);
 
@@ -58,25 +68,29 @@ const HeaderAppbar: React.FC = () => {
         <>
             <AppBar color='secondary' className={classes.root}>
                 <Toolbar>
-                    <Button>
-                        <HeaderTitle>
-                            <ProjectNameContainer />
-                        </HeaderTitle>
-                    </Button>
-                    <Tabs value={tabValue} className={classes.tabContainer}>
-                        <Link href="/" passHref>
-                            <Tab className={classes.tab} label="Home" onChange={handleActiveTabChange} value={0} />
-                        </Link>
-                        <Link href="/aboutus" passHref>
-                            <Tab className={classes.tab} label="About Us" onChange={handleActiveTabChange} value={1} />
-                        </Link>
-                        <Link href="/contactus" passHref>
-                            <Tab className={classes.tab} label="Contact Us" onChange={handleActiveTabChange} value={2} />
-                        </Link>
-                    </Tabs>
-                    <Button className={classes.freeEstimateBtn} variant='contained' color='secondary'>
-                        Sign In
-                    </Button>
+                    <HeaderProjectLogo />
+                    <HeaderMenuContainer tabValue={tabValue}>
+                        <HeaderMenuItem
+                            label={t('home')}
+                            url='/'
+                            value={0}
+                            handleActiveTabChange={handleActiveTabChange} />
+
+                        <HeaderMenuItem
+                            label={t('aboutus')}
+                            url='/aboutus'
+                            value={1}
+                            handleActiveTabChange={handleActiveTabChange} />
+
+                        <HeaderMenuItem
+                            label={t('contact_us')}
+                            url='/contactus'
+                            value={2}
+                            handleActiveTabChange={handleActiveTabChange} />
+                    </HeaderMenuContainer>
+
+                    <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
+
                 </Toolbar>
             </AppBar>
             <div className={classes.toolbarMargin}></div>
