@@ -57,9 +57,9 @@ const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
     };
 
     /**
-     * @function handle
+     * @function handleLanguageSetChange Handler for chaning I18n language set by passed lang code.
      */
-    const handleTest = () => {
+    const handleLanguageSetChange = () => {
         if (langCode === 'en') {
             i18n.changeLanguage('cs');
         } else {
@@ -71,7 +71,7 @@ const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
     return (
         <>
             {langCode}
-            <Button type='button' className={classes.languageBtn} onClick={() => handleTest()}>
+            <Button type='button' className={classes.languageBtn} onClick={() => handleLanguageSetChange()}>
                 <Image src={getLangImage(langCode)} alt='Logo of the website' width={25} height={15} /> &nbsp; {getLangname(langCode)}
             </Button>
         </>
