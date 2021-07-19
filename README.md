@@ -56,7 +56,9 @@ docker run -p 80:3000 nextjs-fe-template
 
 ## UI testing
 
-jest
-jest-enzyme
-ts-jest
-enzyme
+<ul>
+    <li>jest</li>
+    <li>jest-enzyme</li>
+    <li>ts-jest</li>
+    <li>enzyme</li>
+</ul>
