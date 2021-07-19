@@ -12,7 +12,11 @@ interface IProps { }
 const useStyles = makeStyles((theme) => ({
     toolbarMargin: {
         ...theme.mixins.toolbar,
-        marginBottom: '3em'
+        marginBottom: '1.5em',
+
+        [theme.breakpoints.down('md')]: {
+            marginBottom: '0.5em',
+        }
     },
     root: {
         backgroundColor: '#000000',

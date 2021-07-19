@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import { Typography } from "@material-ui/core";
 
 /**
  * @function ContactPage Page component for "Contact Us" page.
@@ -8,7 +9,7 @@ import { NextPage } from "next";
 const ContactPage: NextPage = () => {
     return (
         <>
-            Contact page
+            <Typography variant='h2'>Contact Us</Typography>
         </>
     );
 };

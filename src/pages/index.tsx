@@ -1,5 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
+import { Typography } from '@material-ui/core';
 /**
  * @function Homepage Page component for root path.
  * @return JSX markup that consists all components for the Homepage.
@@ -7,7 +8,7 @@ import { NextPage } from 'next';
 const Homepage: NextPage = () => {
   return (
     <>
-      HomePage
+      <Typography variant='h2'>HomePage</Typography>
     </>
   );
 };

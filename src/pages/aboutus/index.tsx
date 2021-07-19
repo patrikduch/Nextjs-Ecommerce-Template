@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import { Typography } from "@material-ui/core";
 
 /**
  * @function AboutUsPage Page component for "About Us" page.
@@ -8,7 +9,7 @@ import { NextPage } from "next";
 const AboutUsPage: NextPage = () => {
     return (
         <>
-            About Us page
+            <Typography variant='h2'>About Us</Typography>
         </>
     );
 };
