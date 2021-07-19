@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
 import HeaderProjectLogo from './Header-Project-Logo';
 import HeaderDesktopAppbar from './header-desktop-menu/Header-Desktop-Appbar';
+import HeaderDrawerContainer from './header-drawer-menu/Header-Drawer-Container';
 
 /**
  * @interface IProps Component's props interface.
@@ -25,6 +26,21 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '50px',
         marginLeft: '25px',
         marginRight: '25px'
+    },
+
+    drawerIcon: {
+        width: '50px',
+        height: '50px'
+    },
+
+    drawerIconContainer: {
+        marginLeft: 'auto',
+
+        '&:hover': {
+            backgroundColor: 'transparent'
+        },
+
+        color: '#fdfbfb'
     }
 }));
 
@@ -76,7 +92,7 @@ const HeaderAppbar: React.FC<IProps> = () => {
                 <Toolbar>
                     <HeaderProjectLogo />
                     {/** Navigation for desktop variant of the application.  */}
-                    {matches ? null : (
+                    {matches ? <HeaderDrawerContainer /> : (
                         <HeaderDesktopAppbar
                             langcode={langcode}
                             tabValue={tabValue}
@@ -84,6 +100,7 @@ const HeaderAppbar: React.FC<IProps> = () => {
                             handleChangeLangcode={handleChangeLangcode} />
                     )}
                 </Toolbar>
+
             </AppBar>
             <div className={classes.toolbarMargin}></div>
         </>

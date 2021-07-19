@@ -62,3 +62,8 @@ docker run -p 80:3000 nextjs-fe-template
     <li>ts-jest</li>
     <li>enzyme</li>
 </ul>
+
+
+## Additional web assets
+
+@material-ui/icons
