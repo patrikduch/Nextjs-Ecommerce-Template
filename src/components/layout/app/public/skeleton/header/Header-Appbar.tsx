@@ -3,9 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'src/i18n';
 import HeaderProjectLogo from './Header-Project-Logo';
-import HeaderMenuContainer from './header-menu/Header-Menu-Container';
-import HeaderMenuItem from './header-menu/Header-Menu-Item';
-import HeaderLanguageChooser from './Header-Language-Chooser';
+import HeaderDesktopAppbar from './header-desktop-menu/Header-Desktop-Appbar';
 
 /**
  * @interface IProps Component's props interface.
@@ -49,6 +47,9 @@ const HeaderAppbar: React.FC<IProps> = () => {
         setTabValue(value);
     };
 
+    /**
+     * @function handleChangeLangcode Change local state for currently selected language.
+     */
     const handleChangeLangcode = () => {
         if (langcode === 'cs') {
             setLangcode('en');
@@ -56,34 +57,6 @@ const HeaderAppbar: React.FC<IProps> = () => {
             setLangcode('cs');
         }
     };
-
-    /**
-     *  Navigation for desktop variant of the application.
-     */
-    const desktopTabs = (
-        <HeaderMenuContainer tabValue={tabValue}>
-            <HeaderMenuItem
-                label={t('home')}
-                url='/'
-                value={0}
-                handleActiveTabChange={handleActiveTabChange} />
-
-            <HeaderMenuItem
-                label={t('aboutus')}
-                url='/aboutus'
-                value={1}
-                handleActiveTabChange={handleActiveTabChange} />
-
-            <HeaderMenuItem
-                label={t('contact_us')}
-                url='/contactus'
-                value={2}
-                handleActiveTabChange={handleActiveTabChange} />
-
-            <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
-
-        </HeaderMenuContainer>
-    );
 
     useEffect(() => {
         if (window.location.pathname === '/' && tabValue !== 0) {
@@ -100,7 +73,14 @@ const HeaderAppbar: React.FC<IProps> = () => {
             <AppBar color='secondary' className={classes.root}>
                 <Toolbar>
                     <HeaderProjectLogo />
-                    {matches ? null : desktopTabs}
+                    {/** Navigation for desktop variant of the application.  */}
+                    {matches ? null : (
+                        <HeaderDesktopAppbar
+                            langcode={langcode}
+                            tabValue={tabValue}
+                            handleActiveTabChange={handleActiveTabChange}
+                            handleChangeLangcode={handleChangeLangcode} />
+                    )}
                 </Toolbar>
             </AppBar>
             <div className={classes.toolbarMargin}></div>
