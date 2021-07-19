@@ -10,7 +10,7 @@ import HeaderMenuItem from './Header-Menu-Item';
 interface IProps {
     tabValue: number;
     langcode: string;
-    handleActiveTabChange: (e, value) => void;
+    handleActiveTabChange: (e: React.FormEvent<EventTarget>, value: number) => void;
     handleChangeLangcode: () => void;
 }
 

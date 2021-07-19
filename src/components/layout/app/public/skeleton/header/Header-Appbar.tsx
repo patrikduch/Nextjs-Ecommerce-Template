@@ -1,7 +1,6 @@
 import { AppBar, Toolbar, useMediaQuery, useTheme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'src/i18n';
 import HeaderProjectLogo from './Header-Project-Logo';
 import HeaderDesktopAppbar from './header-desktop-menu/Header-Desktop-Appbar';
 
@@ -33,7 +32,6 @@ const HeaderAppbar: React.FC<IProps> = () => {
     const classes = useStyles();
     const [tabValue, setTabValue] = useState(0);
     const [langcode, setLangcode] = useState('cs');
-    const { t } = useTranslation(['public/skeleton/header/appbar']);
 
     // Responsivity
     const theme = useTheme();
@@ -43,7 +41,7 @@ const HeaderAppbar: React.FC<IProps> = () => {
      * @function handleActiveTabChange Change active indicator for appbar navigation.
      * @param value Value of newly selected page.
      */
-    const handleActiveTabChange = (e, value) => {
+    const handleActiveTabChange = (e: React.FormEvent<EventTarget>, value: number) => {
         setTabValue(value);
     };
 

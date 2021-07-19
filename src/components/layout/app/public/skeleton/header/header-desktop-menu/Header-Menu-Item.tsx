@@ -6,7 +6,7 @@ import Link from 'next/link';
  * @interface IProps Component's props interface.
  */
 interface IProps {
-    handleActiveTabChange: (e: any, value: any) => void;
+    handleActiveTabChange: (e: React.FormEvent<EventTarget>, value: number) => void;
     label: string;
     url: string;
     value: number;
@@ -24,11 +24,9 @@ const HeaderMenuItem: React.FC<IProps> = ({ label, url, value, handleActiveTabCh
     const classes = useStyles();
 
     return (
-        <>
-            <Link href={url} passHref>
-                <Tab className={classes.tab} label={label} onChange={handleActiveTabChange} value={value} />
-            </Link>
-        </>
+        <Link href={url} passHref>
+            <Tab className={classes.tab} label={label} onChange={handleActiveTabChange} value={value} />
+        </Link>
     );
 };
 
