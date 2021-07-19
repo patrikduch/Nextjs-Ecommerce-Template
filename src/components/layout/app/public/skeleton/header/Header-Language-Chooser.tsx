@@ -70,7 +70,6 @@ const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
 
     return (
         <>
-            {langCode}
             <Button type='button' className={classes.languageBtn} onClick={() => handleLanguageSetChange()}>
                 <Image src={getLangImage(langCode)} alt='Logo of the website' width={25} height={15} /> &nbsp; {getLangname(langCode)}
             </Button>

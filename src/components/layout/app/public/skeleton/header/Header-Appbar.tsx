@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar, useMediaQuery, useTheme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'src/i18n';
@@ -14,10 +14,11 @@ interface IProps { }
 
 const useStyles = makeStyles((theme) => ({
     toolbarMargin: {
-        ...theme.mixins.toolbar
+        ...theme.mixins.toolbar,
+        marginBottom: '3em'
     },
     root: {
-        backgroundColor: '#000000'
+        backgroundColor: '#000000',
     },
     freeEstimateBtn: {
         borderRadius: '50px',
@@ -36,6 +37,10 @@ const HeaderAppbar: React.FC<IProps> = () => {
     const [langcode, setLangcode] = useState('cs');
     const { t } = useTranslation(['public/skeleton/header/appbar']);
 
+    // Responsivity
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
     /**
      * @function handleActiveTabChange Change active indicator for appbar navigation.
      * @param value Value of newly selected page.
@@ -52,15 +57,41 @@ const HeaderAppbar: React.FC<IProps> = () => {
         }
     };
 
+    /**
+     *  Navigation for desktop variant of the application.
+     */
+    const desktopTabs = (
+        <HeaderMenuContainer tabValue={tabValue}>
+            <HeaderMenuItem
+                label={t('home')}
+                url='/'
+                value={0}
+                handleActiveTabChange={handleActiveTabChange} />
+
+            <HeaderMenuItem
+                label={t('aboutus')}
+                url='/aboutus'
+                value={1}
+                handleActiveTabChange={handleActiveTabChange} />
+
+            <HeaderMenuItem
+                label={t('contact_us')}
+                url='/contactus'
+                value={2}
+                handleActiveTabChange={handleActiveTabChange} />
+
+            <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
+
+        </HeaderMenuContainer>
+    );
+
     useEffect(() => {
         if (window.location.pathname === '/' && tabValue !== 0) {
             setTabValue(0);
-        } else if (window.location.pathname === '/services' && tabValue !== 1) {
-            setTabValue(1);
         } else if (window.location.pathname === '/aboutus' && tabValue !== 1) {
-            setTabValue(3);
+            setTabValue(1);
         } else if (window.location.pathname === '/contactus' && tabValue !== 2) {
-            setTabValue(4);
+            setTabValue(2);
         }
     }, []);
 
@@ -69,28 +100,7 @@ const HeaderAppbar: React.FC<IProps> = () => {
             <AppBar color='secondary' className={classes.root}>
                 <Toolbar>
                     <HeaderProjectLogo />
-                    <HeaderMenuContainer tabValue={tabValue}>
-                        <HeaderMenuItem
-                            label={t('home')}
-                            url='/'
-                            value={0}
-                            handleActiveTabChange={handleActiveTabChange} />
-
-                        <HeaderMenuItem
-                            label={t('aboutus')}
-                            url='/aboutus'
-                            value={1}
-                            handleActiveTabChange={handleActiveTabChange} />
-
-                        <HeaderMenuItem
-                            label={t('contact_us')}
-                            url='/contactus'
-                            value={2}
-                            handleActiveTabChange={handleActiveTabChange} />
-                    </HeaderMenuContainer>
-
-                    <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
-
+                    {matches ? null : desktopTabs}
                 </Toolbar>
             </AppBar>
             <div className={classes.toolbarMargin}></div>
