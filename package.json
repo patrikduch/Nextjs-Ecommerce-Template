@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "test": "jest --env=jsdom --watchAll"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
@@ -32,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "babel-plugin-module-resolver": "^4.1.0",
+    "enzyme": "^3.11.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
@@ -42,7 +44,10 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "jest": "^27.0.6",
+    "jest-enzyme": "^7.1.2",
     "prettier": "^2.2.1",
+    "ts-jest": "^27.0.3",
     "typescript": "^4.2.3"
   }
 }

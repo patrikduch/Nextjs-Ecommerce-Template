@@ -53,3 +53,10 @@ docker run -p 80:3000 nextjs-fe-template
     <li>eslint-plugin-simple-import-sort JS library</li>
 </ul>
 
+
+## UI testing
+
+jest
+jest-enzyme
+ts-jest
+enzyme
