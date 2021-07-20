@@ -13,11 +13,15 @@ interface IProps { }
 const useStyles = makeStyles((theme) => ({
     toolbarMargin: {
         ...theme.mixins.toolbar,
-        marginBottom: '1.5em',
 
-        [theme.breakpoints.down('md')]: {
-            marginBottom: '0.5em',
-        }
+        [theme.breakpoints.up('xs')]: {
+            marginBottom: '0.85em'
+        },
+
+        [theme.breakpoints.up('lg')]: {
+            marginBottom: '2em'
+        },
+
     },
     root: {
         backgroundColor: '#000000',
