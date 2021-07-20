@@ -27,21 +27,6 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '25px',
         marginRight: '25px'
     },
-
-    drawerIcon: {
-        width: '50px',
-        height: '50px'
-    },
-
-    drawerIconContainer: {
-        marginLeft: 'auto',
-
-        '&:hover': {
-            backgroundColor: 'transparent'
-        },
-
-        color: '#fdfbfb'
-    }
 }));
 
 /**
@@ -100,7 +85,6 @@ const HeaderAppbar: React.FC<IProps> = () => {
                             handleChangeLangcode={handleChangeLangcode} />
                     )}
                 </Toolbar>
-
             </AppBar>
             <div className={classes.toolbarMargin}></div>
         </>
