@@ -4,26 +4,21 @@ import MenuIcon from '@material-ui/icons/Menu';
 import HeaderDrawerList from './Header-Drawer-List';
 
 const useStyles = makeStyles((theme) => ({
-
     drawerIcon: {
         width: '50px',
         height: '50px'
     },
-
     drawer: {
         backgroundColor: `${theme.palette.common.black}`,
         color: `${theme.palette.common.white}`
     },
-
     drawerIconContainer: {
         marginLeft: 'auto',
-
         '&:hover': {
             backgroundColor: 'transparent'
         },
-
         color: '#fdfbfb'
-    }
+    },
 }));
 
 /**
@@ -38,8 +33,14 @@ const HeaderDrawerContainer: React.FC = () => {
 
     return (
         <>
-            <SwipeableDrawer classes={{ paper: classes.drawer }} open={openDrawer} onClose={() => setOpenDrawer(false)} onOpen={() => setOpenDrawer(true)} disableBackdropTransition={!iOS} disableDiscovery={iOS}>
-                <HeaderDrawerList />
+            <SwipeableDrawer
+                classes={{ paper: classes.drawer }}
+                disableBackdropTransition={!iOS}
+                disableDiscovery={iOS}
+                open={openDrawer}
+                onClose={() => setOpenDrawer(false)}
+                onOpen={() => setOpenDrawer(true)} >
+                <HeaderDrawerList closeDrawer={() => setOpenDrawer(false)} />
             </SwipeableDrawer>
             <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
                 <MenuIcon className={classes.drawerIcon} />
