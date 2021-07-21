@@ -8,13 +8,22 @@ import { i18n } from 'src/i18n';
  */
 interface IProps {
     langCode: string;
+    isMobile?: boolean;
     changeLang: () => void;
 }
 
+const buttonTextColor = '#ffff';
+
 const useStyles = makeStyles({
-    languageBtn: {
-        color: '#ffff',
-        marginLeft: '6px',
+    languageDesktopBtn: {
+        color: `${buttonTextColor}`,
+        marginLeft: '25px',
+    },
+
+    languageBtnMobile: {
+        color: `${buttonTextColor}`,
+        marginLeft: '25px',
+        marginTop: '6px'
     }
 });
 
@@ -24,7 +33,7 @@ const useStyles = makeStyles({
  * @param changeLang Event for hanging particular language.
  * @returns JSX with language chooser functionality.
  */
-const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
+const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, isMobile, langCode }) => {
     const classes = useStyles();
 
     /**
@@ -66,11 +75,13 @@ const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
         }
         changeLang();
     };
-
     return (
-        <Button type='button' className={classes.languageBtn} onClick={() => handleLanguageSetChange()}>
-            <Image src={getLangImage(langCode)} alt='Logo of the website' width={25} height={15} /> &nbsp; {getLangname(langCode)}
-        </Button>
+        <div className={isMobile ? classes.languageBtnMobile : classes.languageDesktopBtn}>
+            <Button type='button' onClick={() => handleLanguageSetChange()}>
+                <Image src={getLangImage(langCode)} alt='Logo of the website' width={25} height={15} /> &nbsp; {getLangname(langCode)}
+            </Button>
+        </div>
+
     );
 };
 

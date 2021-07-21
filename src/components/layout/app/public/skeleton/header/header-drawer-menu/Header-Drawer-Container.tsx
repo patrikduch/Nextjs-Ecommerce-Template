@@ -48,7 +48,7 @@ const HeaderDrawerContainer: React.FC<IProps> = ({ langcode, handleChangeLangcod
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
                 onOpen={() => setOpenDrawer(true)} >
-                <HeaderDrawerList langcode={langcode} closeDrawer={() => setOpenDrawer(false)} handleChangeLangcode={handleChangeLangcode} />
+                <HeaderDrawerList isMobile={openDrawer} langcode={langcode} closeDrawer={() => setOpenDrawer(false)} handleChangeLangcode={handleChangeLangcode} />
             </SwipeableDrawer>
             <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
                 <MenuIcon className={classes.drawerIcon} />

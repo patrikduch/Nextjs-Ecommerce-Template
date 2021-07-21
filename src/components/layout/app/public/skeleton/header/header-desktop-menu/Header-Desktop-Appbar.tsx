@@ -1,3 +1,4 @@
+import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'src/i18n';
 import HeaderLanguageChooser from '../Header-Language-Chooser';
@@ -20,7 +21,6 @@ interface IProps {
  * @returns JSX with encapsulated components HeaderMenuContainer and HeaderMenuItem.
  */
 const HeaderDesktopAppbar: React.FC<IProps> = (props) => {
-
     const { t } = useTranslation(['public/skeleton/header/appbar']);
 
     return (
@@ -42,7 +42,8 @@ const HeaderDesktopAppbar: React.FC<IProps> = (props) => {
                 url='/contactus'
                 value={2}
                 handleActiveTabChange={props.handleActiveTabChange} />
-            <HeaderLanguageChooser langCode={props.langcode} changeLang={props.handleChangeLangcode} />
+
+            <HeaderLanguageChooser isMobile={true} langCode={props.langcode} changeLang={props.handleChangeLangcode} />
         </HeaderMenuContainer>
     );
 }

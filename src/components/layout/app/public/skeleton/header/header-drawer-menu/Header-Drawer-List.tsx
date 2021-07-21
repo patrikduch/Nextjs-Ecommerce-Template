@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
  * @interface IProps Component's props interface.
  */
 interface IProps {
+    isMobile: boolean;
     langcode: string;
     closeDrawer: () => void;
     handleChangeLangcode: () => void;
@@ -25,7 +26,7 @@ interface IProps {
  * @function HeaderDrawerList Content of header drawer ui component.
  * @returns JSX content that will be injected into Drawer UI component.
  */
-const HeaderDrawerList: React.FC<IProps> = ({ langcode, closeDrawer, handleChangeLangcode, }) => {
+const HeaderDrawerList: React.FC<IProps> = ({ isMobile, langcode, closeDrawer, handleChangeLangcode, }) => {
 
     const classes = useStyles();
 
@@ -49,7 +50,7 @@ const HeaderDrawerList: React.FC<IProps> = ({ langcode, closeDrawer, handleChang
                 </ListItem>
             </Link>
 
-            <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
+            <HeaderLanguageChooser isMobile={isMobile} langCode={langcode} changeLang={handleChangeLangcode} />
         </List>
     );
 }
