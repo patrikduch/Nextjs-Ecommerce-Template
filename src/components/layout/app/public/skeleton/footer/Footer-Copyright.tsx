@@ -19,7 +19,7 @@ const FooterCopyright: React.FC = () => {
     return (
         <Typography className={classes.root} component='h3' variant='h5'>
             <>
-                2021 © <ProjectNameContainer />, Author: Patrik Duch
+                {Date.now()} © <ProjectNameContainer />, Author: Patrik Duch
             </>
         </Typography>
     );

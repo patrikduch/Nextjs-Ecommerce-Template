@@ -24,29 +24,26 @@ const HeaderDesktopAppbar: React.FC<IProps> = (props) => {
     const { t } = useTranslation(['public/skeleton/header/appbar']);
 
     return (
-        <>
-            <HeaderMenuContainer tabValue={props.tabValue}>
-                <HeaderMenuItem
-                    label={t('home')}
-                    url='/'
-                    value={0}
-                    handleActiveTabChange={props.handleActiveTabChange} />
+        <HeaderMenuContainer tabValue={props.tabValue}>
+            <HeaderMenuItem
+                label={t('home')}
+                url='/'
+                value={0}
+                handleActiveTabChange={props.handleActiveTabChange} />
 
-                <HeaderMenuItem
-                    label={t('aboutus')}
-                    url='/aboutus'
-                    value={1}
-                    handleActiveTabChange={props.handleActiveTabChange} />
+            <HeaderMenuItem
+                label={t('aboutus')}
+                url='/aboutus'
+                value={1}
+                handleActiveTabChange={props.handleActiveTabChange} />
 
-                <HeaderMenuItem
-                    label={t('contact_us')}
-                    url='/contactus'
-                    value={2}
-                    handleActiveTabChange={props.handleActiveTabChange} />
-
-                <HeaderLanguageChooser langCode={props.langcode} changeLang={props.handleChangeLangcode} />
-            </HeaderMenuContainer>
-        </>
+            <HeaderMenuItem
+                label={t('contact_us')}
+                url='/contactus'
+                value={2}
+                handleActiveTabChange={props.handleActiveTabChange} />
+            <HeaderLanguageChooser langCode={props.langcode} changeLang={props.handleChangeLangcode} />
+        </HeaderMenuContainer>
     );
 }
 

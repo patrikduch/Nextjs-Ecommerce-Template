@@ -24,13 +24,11 @@ const HeaderProjectLogo: React.FC = () => {
     const classes = useStyles();
 
     return (
-        <>
-            <Button className={classes.logo}>
-                <HeaderTitle>
-                    <ProjectNameContainer />
-                </HeaderTitle>
-            </Button>
-        </>
+        <Button className={classes.logo}>
+            <HeaderTitle>
+                <ProjectNameContainer />
+            </HeaderTitle>
+        </Button>
     );
 };
 
