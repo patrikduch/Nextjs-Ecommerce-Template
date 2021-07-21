@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'src/i18n';
 import HeaderLanguageChooser from '../Header-Language-Chooser';
