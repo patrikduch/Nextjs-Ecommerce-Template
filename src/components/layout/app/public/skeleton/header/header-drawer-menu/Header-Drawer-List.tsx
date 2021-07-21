@@ -9,7 +9,7 @@ import HeaderLanguageChooser from '../Header-Language-Chooser';
 const useStyles = makeStyles((theme) => ({
     drawerItem: {
         ...theme.typography.tab,
-    }
+    },
 }));
 
 /**
@@ -30,29 +30,27 @@ const HeaderDrawerList: React.FC<IProps> = ({ langcode, closeDrawer, handleChang
     const classes = useStyles();
 
     return (
-        <>
-            <List disablePadding>
-                <Link href={'/'} passHref>
-                    <ListItem onClick={closeDrawer} divider button>
-                        <ListItemText>Home</ListItemText>
-                    </ListItem>
-                </Link>
+        <List disablePadding>
+            <Link href={'/'} passHref>
+                <ListItem onClick={closeDrawer} divider button>
+                    <ListItemText>Home</ListItemText>
+                </ListItem>
+            </Link>
 
-                <Link href={'/aboutus'} passHref>
-                    <ListItem onClick={closeDrawer} divider button>
-                        <ListItemText className={classes.drawerItem}>About Us</ListItemText>
-                    </ListItem>
-                </Link>
+            <Link href={'/aboutus'} passHref>
+                <ListItem onClick={closeDrawer} divider button>
+                    <ListItemText className={classes.drawerItem}>About Us</ListItemText>
+                </ListItem>
+            </Link>
 
-                <Link href={'/contactus'} passHref>
-                    <ListItem onClick={closeDrawer} divider button>
-                        <ListItemText>Contact Us</ListItemText>
-                    </ListItem>
-                </Link>
+            <Link href={'/contactus'} passHref>
+                <ListItem onClick={closeDrawer} divider button>
+                    <ListItemText>Contact Us</ListItemText>
+                </ListItem>
+            </Link>
 
-                <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
-            </List>
-        </>
+            <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
+        </List>
     );
 }
 

@@ -14,8 +14,7 @@ interface IProps {
 const useStyles = makeStyles({
     languageBtn: {
         color: '#ffff',
-        marginLeft: '25px',
-        marginRight: '25px'
+        marginLeft: '6px',
     }
 });
 
@@ -69,11 +68,9 @@ const HeaderLanguageChooser: React.FC<IProps> = ({ changeLang, langCode }) => {
     };
 
     return (
-        <>
-            <Button type='button' className={classes.languageBtn} onClick={() => handleLanguageSetChange()}>
-                <Image src={getLangImage(langCode)} alt='Logo of the website' width={25} height={15} /> &nbsp; {getLangname(langCode)}
-            </Button>
-        </>
+        <Button type='button' className={classes.languageBtn} onClick={() => handleLanguageSetChange()}>
+            <Image src={getLangImage(langCode)} alt='Logo of the website' width={25} height={15} /> &nbsp; {getLangname(langCode)}
+        </Button>
     );
 };
 
