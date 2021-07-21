@@ -81,7 +81,7 @@ const HeaderAppbar: React.FC<IProps> = () => {
                 <Toolbar>
                     <HeaderProjectLogo />
                     {/** Navigation for desktop variant of the application.  */}
-                    {matches ? <HeaderDrawerContainer /> : (
+                    {matches ? <HeaderDrawerContainer langcode={langcode} handleChangeLangcode={handleChangeLangcode} /> : (
                         <HeaderDesktopAppbar
                             langcode={langcode}
                             tabValue={tabValue}

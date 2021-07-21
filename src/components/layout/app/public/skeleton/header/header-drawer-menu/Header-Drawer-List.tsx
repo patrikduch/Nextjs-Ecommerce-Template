@@ -4,6 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core';
 import Link from 'next/link';
+import HeaderLanguageChooser from '../Header-Language-Chooser';
 
 const useStyles = makeStyles((theme) => ({
     drawerItem: {
@@ -15,14 +16,16 @@ const useStyles = makeStyles((theme) => ({
  * @interface IProps Component's props interface.
  */
 interface IProps {
+    langcode: string;
     closeDrawer: () => void;
+    handleChangeLangcode: () => void;
 }
 
 /**
  * @function HeaderDrawerList Content of header drawer ui component.
  * @returns JSX content that will be injected into Drawer UI component.
  */
-const HeaderDrawerList: React.FC<IProps> = ({ closeDrawer }) => {
+const HeaderDrawerList: React.FC<IProps> = ({ langcode, closeDrawer, handleChangeLangcode, }) => {
 
     const classes = useStyles();
 
@@ -46,6 +49,8 @@ const HeaderDrawerList: React.FC<IProps> = ({ closeDrawer }) => {
                         <ListItemText>Contact Us</ListItemText>
                     </ListItem>
                 </Link>
+
+                <HeaderLanguageChooser langCode={langcode} changeLang={handleChangeLangcode} />
             </List>
         </>
     );

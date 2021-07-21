@@ -3,6 +3,14 @@ import React, { useState } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import HeaderDrawerList from './Header-Drawer-List';
 
+/**
+ * @interface IProps Component's props interface.
+ */
+interface IProps {
+    langcode: string;
+    handleChangeLangcode: () => void;
+}
+
 const useStyles = makeStyles((theme) => ({
     drawerIcon: {
         width: '50px',
@@ -25,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
  * @function HeaderDrawerContainer Encapsulation component for rendering miniatured navigation for small devices.
  * @returns Static JSX with interactive Drawer functionality.
  */
-const HeaderDrawerContainer: React.FC = () => {
+const HeaderDrawerContainer: React.FC<IProps> = ({ langcode, handleChangeLangcode }) => {
 
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -40,7 +48,7 @@ const HeaderDrawerContainer: React.FC = () => {
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
                 onOpen={() => setOpenDrawer(true)} >
-                <HeaderDrawerList closeDrawer={() => setOpenDrawer(false)} />
+                <HeaderDrawerList langcode={langcode} closeDrawer={() => setOpenDrawer(false)} handleChangeLangcode={handleChangeLangcode} />
             </SwipeableDrawer>
             <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
                 <MenuIcon className={classes.drawerIcon} />
