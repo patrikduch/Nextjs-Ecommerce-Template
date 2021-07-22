@@ -8,7 +8,6 @@ import { appWithTranslation } from 'src/i18n';
 import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 import { getProjectDetail } from '@redux/actions/project-detail';
 import theme from '../theme';
-import MainContainer from '@components/layout/app/public/skeleton/Main-Container';
 import { i18n } from 'src/i18n';
 
 const MyApp = ({ Component, pageProps }) => {
@@ -40,9 +39,7 @@ const MyApp = ({ Component, pageProps }) => {
         {/* The rest of your application */}
         <CssBaseline />
         <StylesProvider injectFirst>
-          <MainContainer>
-            <Component {...pageProps} />
-          </MainContainer>
+          <Component {...pageProps} />
         </StylesProvider>
       </ThemeProvider>
     </div>
