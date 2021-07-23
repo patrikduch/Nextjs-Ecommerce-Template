@@ -15,4 +15,5 @@ const bindMiddleware = (middleware) => {
 
 export const initStore = (): Store<ApplicationState> => { return createStore(reducer, bindMiddleware([thunkMiddleware])); };
 
+// export an assembled wrapper
 export const wrapper = createWrapper(initStore);

@@ -5,9 +5,7 @@ import Head from 'next/head';
 import React from 'react';
 import useDidMount from 'src/hooks/dom/component.didmount.hook';
 import { appWithTranslation } from 'src/i18n';
-import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
-import { getProjectDetail } from '@redux/actions/project-detail';
-import theme from '../theme';
+import theme from 'src/theme';
 import { i18n } from 'src/i18n';
 
 const MyApp = ({ Component, pageProps }) => {
@@ -48,16 +46,9 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
-  const { store } = appContext.ctx;
-
-  await (store as StoreTypeObj).dispatch(getProjectDetail());
-
   const pageProps = await App.getInitialProps(appContext);
   return {
-    pageProps,
-    props: {
-      projectDetail: store.getState().projectDetail
-    }
+    pageProps
   };
 };
 
