@@ -1,45 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Chart from 'react-apexcharts'
+import useDidMount from 'src/hooks/dom/component.didmount.hook';
 
-export default class DonutGraph extends React.Component {
+/**
+ * @function DonutGraph Displays Donut graph.
+ * @returns ReactApexChart component.
+ */
+const DonutGraph: React.FC = () => {
 
-    state = {
-        inClient: false
-    };
+    const [xAxisCategories, setXAxisCategories] = useState([] as string[]);
+    const [yData, setYData] = useState([]);
 
-    componentDidMount() {
-        this.setState({ inClient: true });
-    }
+    useDidMount(() => {
+        setXAxisCategories(['A', 'B', 'C', 'D', 'E']);
+        setYData([44, 55, 41, 17, 15]);
+    });
 
-    render() {
-        let graph;
-        if (this.state.inClient) {
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const Chart = require('react-chartjs-2');
-            graph = <Chart.Doughnut data={data} />;
-        } else {
-            graph = <span> Chart cannot be rendered. </span>;
-        }
-        return graph;
-    }
+    return (
+        <Chart options={{ labels: xAxisCategories }} series={yData} type="donut" />
+    );
 }
 
-const data = {
-    labels: [
-        'Bitcoin',
-        'Dogecoin',
-        'Babydoge'
-    ],
-    datasets: [{
-        data: [300, 50, 100],
-        backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
-        ],
-        hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
-        ]
-    }]
-};
+export default DonutGraph;
