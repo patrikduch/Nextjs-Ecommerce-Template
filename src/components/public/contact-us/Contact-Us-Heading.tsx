@@ -4,7 +4,7 @@ import { useTranslation } from 'src/i18n';
 
 /**
  * @function ContactUsHeading Heading area for "ContactUs page component".
- * @returns 
+ * @returns Heading content for ContactUs page component.
  */
 const ContactUsHeading: React.FC = () => {
 
