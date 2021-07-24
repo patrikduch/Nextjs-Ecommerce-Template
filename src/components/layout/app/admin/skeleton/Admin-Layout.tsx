@@ -6,6 +6,11 @@ import AdminHeaderDrawer from './header/header-mobile-menu/Admin-Header-Drawer';
 import AdminHeaderToolbar from './header/header-mobile-menu/Admin-Header-Toolbar';
 import AdminHeaderDrawerList from './header/header-mobile-menu/Admin-Header-Drawer-List';
 
+/**
+ * @function AdminLayout Layout for administration portal.
+ * @param children Nested children component that compose whole admin portal.
+ * @returns Encapsulation admin portal component with all needed children component.
+ */
 const AdminLayout: React.FC = ({ children }) => {
     const [open, setOpen] = React.useState(false);
 
