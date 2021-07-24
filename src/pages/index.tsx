@@ -1,10 +1,10 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { Typography } from '@material-ui/core';
 import MainContainer from '@components/layout/app/public/skeleton/Main-Container';
 import { wrapper } from '@redux/store';
 import { getProjectDetail } from '@redux/actions/project-detail';
 import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
+import CommodityListingContainer from '@components/public/home-page/commodities/Commodity-Listing-Container';
 /**
  * @function Homepage Page component for root path.
  * @return JSX markup that consists all components for the Homepage.
@@ -12,7 +12,7 @@ import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 const Homepage: NextPage = () => {
   return (
     <MainContainer>
-      <Typography variant='h2'>HomePage</Typography>
+      <CommodityListingContainer />
     </MainContainer>
   );
 };
