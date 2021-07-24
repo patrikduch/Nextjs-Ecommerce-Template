@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 
 /**
@@ -43,8 +43,8 @@ const CommodityItemContent: React.FC<IProps> = ({ title }) => {
 
     return (
         <div className={classes.root}>
-            <div className={classes.title}>{title}</div>
-            <span className={classes.subtitle}>SHOP NOW</span>
+            <Typography className={classes.title} variant='h2'>{title}</Typography>
+            <Typography className={classes.subtitle} variant='h3'>SHOP NOW</Typography>
         </div>
 
     );
