@@ -1,10 +1,10 @@
 import React from "react";
 import { NextPage } from "next";
-import { Typography } from "@material-ui/core";
 import MainContainer from '@components/layout/app/public/skeleton/Main-Container';
 import { wrapper } from "@redux/store";
 import StoreTypeObj from "@typescript/types/shared/redux/thunk/Store-Type";
 import { getProjectDetail } from "@redux/actions/project-detail";
+import AboutUsHeading from "@components/public/about-us/About-Us-Heading";
 
 /**
  * @function AboutUsPage Page component for "About Us" page.
@@ -13,7 +13,7 @@ import { getProjectDetail } from "@redux/actions/project-detail";
 const AboutUsPage: NextPage = () => {
     return (
         <MainContainer>
-            <Typography variant='h2'>About Us</Typography>
+            <AboutUsHeading />
         </MainContainer>
     );
 };
