@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'src/i18n';
 
 /**
  * @interface IProps Component's props interface.
@@ -41,10 +42,12 @@ const CommodityItemContent: React.FC<IProps> = ({ title }) => {
 
     const classes = useStyles();
 
+    const { t } = useTranslation(['public/app/pages/home-page']);
+
     return (
         <div className={classes.root}>
             <Typography className={classes.title} variant='h2'>{title}</Typography>
-            <Typography className={classes.subtitle} variant='h3'>SHOP NOW</Typography>
+            <Typography className={classes.subtitle} variant='h3'>{t('buy_label')}</Typography>
         </div>
 
     );
